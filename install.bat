@@ -11,7 +11,7 @@ cd %fperoot%
 cls
 echo -----------------------------------------
 echo ----          Fast Portable Env
-echo ----            version  1.3.0
+echo ----            version  1.3.1
 echo -----------------------------------------
 
 echo 3c.	Install 360Chrome
@@ -35,8 +35,11 @@ echo ln.	Install LeaNote
 echo oc.	Install OwnCloud
 echo is.	Install NSIS [3.0.1]
 echo .........................................
+echo mr.	Install MariaDB [10.2.12]
+echo mg.	Install MongoDB [3.6.1]
 echo nc.	Install Navicat [9.1.11]
 echo rt.	Install Robo3T [1.1.1]
+echo .........................................
 echo pg.	Install PngGauntlet
 echo tp.	Install TexturePacker
 echo sf.	Install XShell XFtp [5.0]
@@ -73,6 +76,8 @@ if "%idx%"=="sy" goto ILSpy
 if "%idx%"=="ln" goto LeaNote
 if "%idx%"=="oc" goto OwnCloud
 if "%idx%"=="is" goto NSIS
+if "%idx%"=="mr" goto MariaDB
+if "%idx%"=="mg" goto MongoDB
 if "%idx%"=="nc" goto Navicat
 if "%idx%"=="rt" goto Robo3T
 if "%idx%"=="pg" goto PngGauntlet
@@ -240,6 +245,18 @@ set exe=ILSpy\ILSpy.exe
 call :download_app %app%
 call :decompress_app %app%
 call :createshortcut %app% %exe%
+goto menu
+
+:MariaDB
+set app=mariadb
+call :download_app %app%
+call :decompress_app %app%
+goto menu
+
+:MongoDB
+set app=mongodb
+call :download_app %app%
+call :decompress_app %app%
 goto menu
 
 :Navicat
